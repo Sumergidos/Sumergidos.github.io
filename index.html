@@ -896,7 +896,8 @@
   }
 
   function initProductButtons() {
-    document.querySelectorAll('.add-btn').forEach(function (btn) {
+    document.querySelectorAll('.add-btn, .agregar-btn, .carrito-agregar-btn').forEach(function (btn) {
+      if (btn.closest('.cart-control, .carro-control')) return;
       btn.addEventListener('click', function () {
         try {
           const item = sanitizeText(btn.getAttribute('data-item'));
@@ -988,7 +989,7 @@
   }
 
   function renderAllCartControls() {
-    document.querySelectorAll('.cart-control').forEach(renderCartControl);
+    document.querySelectorAll('.cart-control, .carro-control').forEach(renderCartControl);
   }
 
   function renderCartBar() {
@@ -1058,7 +1059,7 @@
 
   function changeQty(id, delta) {
     try {
-      const container = document.querySelector('.cart-control[data-id="' + id + '"]');
+      const container = document.querySelector('.cart-control[data-id="' + id + '"], .carro-control[data-id="' + id + '"]');
       if (!cart[id]) {
         if (!container) {
           console.error('Producto de carrito no encontrado: ' + id);
@@ -1112,11 +1113,11 @@
   }
 
   function initCart() {
-    document.querySelectorAll('.cart-control').forEach(function (container) {
+    document.querySelectorAll('.cart-control, .carro-control').forEach(function (container) {
       renderCartControl(container);
       container.addEventListener('click', function (e) {
         const id = container.getAttribute('data-id');
-        if (e.target.classList.contains('cart-add-btn') || e.target.classList.contains('qty-plus')) {
+        if (e.target.classList.contains('cart-add-btn') || e.target.classList.contains('carrito-agregar-btn') || e.target.classList.contains('qty-plus')) {
           changeQty(id, 1);
         } else if (e.target.classList.contains('qty-minus')) {
           changeQty(id, -1);
