@@ -528,8 +528,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    animation: logoSpin 2s linear infinite;
   }
   .welcome-logo svg { width: 100%; height: 100%; }
+  @keyframes logoSpin {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(360deg); }
+    100% { transform: rotate(360deg); }
+  }
   .welcome-title {
     font-family: 'Fraunces', serif;
     font-weight: 900;
@@ -537,6 +543,14 @@
     letter-spacing: 0.02em;
     color: var(--accent);
     margin: 0 0 8px;
+    animation: titleFloat 2.8s ease-in-out infinite;
+  }
+  @keyframes titleFloat {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-5px) scale(1.03); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .welcome-logo, .welcome-title { animation: none; }
   }
   .welcome-tagline {
     font-size: 15px;
@@ -753,9 +767,9 @@
         <div class="cart-control" data-id="fresas-cubiertas" data-name="Fresas Cubiertas" data-price="15.00"><button type="button" class="cart-add-btn">+</button></div>
       </div>
       <div class="product-card">
-        <div class="product-photo" style="--coat:#4b2b1c"><svg viewBox="0 0 100 100" width="68" height="68"><circle cx="50" cy="50" r="46" fill="#4b2b1c"/><rect x="26" y="40" width="48" height="10" rx="5" fill="#caa06a"/><rect x="26" y="50" width="48" height="9" rx="4" fill="#c68642"/><rect x="26" y="59" width="48" height="10" rx="5" fill="#caa06a"/><path d="M26,40 Q50,32 74,40 L74,45 Q50,38 26,45 Z" fill="#6b3f2a"/></svg></div><div class="product-top"><span class="product-name">Alfajor Cubierto</span><span class="product-price">S/. 4.00</span></div>
-        <p class="product-desc">Alfajor clásico cubierto por chocolate.</p>
-        <div class="cart-control" data-id="alfajor-cubierto" data-name="Alfajor Cubierto" data-price="4.00"><button type="button" class="cart-add-btn">+</button></div>
+        <div class="product-photo" style="--coat:#4b2b1c"><svg viewBox="0 0 100 100" width="68" height="68"><circle cx="50" cy="50" r="46" fill="#4b2b1c"/><rect x="26" y="40" width="48" height="10" rx="5" fill="#caa06a"/><rect x="26" y="50" width="48" height="9" rx="4" fill="#c68642"/><rect x="26" y="59" width="48" height="10" rx="5" fill="#caa06a"/><path d="M26,40 Q50,32 74,40 L74,45 Q50,38 26,45 Z" fill="#6b3f2a"/></svg></div><div class="product-top"><span class="product-name">Alfajor Sumergido</span><span class="product-price">S/. 4.00</span></div>
+        <p class="product-desc">Alfajor clásico sumergid@ en  chocolate.</p>
+        <div class="cart-control" data-id="alfajor-sumergido" data-name="Alfajor Sumergido" data-price="4.00"><button type="button" class="cart-add-btn">+</button></div>
       </div>
       <div class="product-card">
         <div class="product-photo" style="--coat:#6b3f2a"><svg viewBox="0 0 100 100" width="68" height="68"><circle cx="50" cy="50" r="46" fill="#6b3f2a"/><rect x="48" y="24" width="4" height="54" rx="2" fill="#d9a441"/><circle cx="50" cy="34" r="9" fill="#7a1f3a"/><circle cx="50" cy="52" r="9" fill="#8a3d1e"/><circle cx="50" cy="70" r="9" fill="#e0c04a"/></svg></div><div class="product-top"><span class="product-name">Chocobrochetas</span><span class="product-price">S/. 10.00</span></div>
@@ -769,7 +783,7 @@
       </div>
       <div class="product-card">
         <div class="product-photo" style="--coat:#3a2417"><svg viewBox="0 0 100 100" width="68" height="68"><circle cx="50" cy="50" r="46" fill="#3a2417"/><circle cx="50" cy="55" r="24" fill="#6b3f2a"/><circle cx="42" cy="40" r="5" fill="#f5f0e6"/><circle cx="53" cy="35" r="4" fill="#f5f0e6"/><circle cx="61" cy="42" r="4.5" fill="#f5f0e6"/><path d="M50,26 L50,18" stroke="#caa06a" stroke-width="2.5" stroke-linecap="round"/></svg></div><div class="product-top"><span class="product-name">Choco Bombas</span><span class="product-price">S/. 8.00</span></div>
-        <p class="product-desc">Bomba de chocolate rellena.</p>
+        <p class="product-desc">Bomba de chocolate crujiente,relleno de marshmallows.</p>
         <div class="cart-control" data-id="choco-bombas" data-name="Choco Bombas" data-price="8.00"><button type="button" class="cart-add-btn">+</button></div>
       </div>
       <div class="product-card">
@@ -779,7 +793,7 @@
       </div>
       <div class="product-card">
         <div class="product-photo" style="--coat:#6b3f2a"><svg viewBox="0 0 100 100" width="68" height="68"><circle cx="50" cy="50" r="46" fill="#6b3f2a"/><path d="M50,30 L45,37 L55,37 Z" fill="#4a8a3f"/><path d="M33,42 C33,64 42,76 50,76 C58,76 67,64 67,42 C67,35 59,31 50,38 C41,31 33,35 33,42 Z" fill="#e0507a"/><circle cx="50" cy="52" r="12" fill="#3a1f13"/><circle cx="41" cy="46" r="1.4" fill="#7a1f3a"/><circle cx="59" cy="47" r="1.4" fill="#7a1f3a"/><circle cx="50" cy="68" r="1.4" fill="#7a1f3a"/></svg></div><div class="product-top"><span class="product-name">Choco Fresas</span><span class="product-price">S/. 15.00</span></div>
-        <p class="product-desc">6 unidades de fresas rellenas de chocolate con cobertura de chocolate.</p>
+        <p class="product-desc">6 unidades de fresas rellenas de chocolate sumergid@ en chocolate.</p>
         <div class="cart-control" data-id="choco-fresas" data-name="Choco Fresas" data-price="15.00"><button type="button" class="cart-add-btn">+</button></div>
       </div>
     </div>
@@ -921,6 +935,22 @@
           console.error('Error al cambiar de categoría:', err.message);
         }
       });
+    });
+  }
+
+  function replaceCoveredText() {
+    const replacement = function (value) {
+      return value.replace(/cubiertas?(?:\s+por|\s+de)?/gi, 'sumergid@ en');
+    };
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    const textNodes = [];
+    let node;
+    while ((node = walker.nextNode())) textNodes.push(node);
+    textNodes.forEach(function (textNode) {
+      textNode.nodeValue = replacement(textNode.nodeValue);
+    });
+    document.querySelectorAll('[data-name]').forEach(function (element) {
+      element.setAttribute('data-name', replacement(element.getAttribute('data-name')));
     });
   }
 
@@ -1151,6 +1181,7 @@
     initOrderButtons();
     initProductButtons();
     initTabs();
+    replaceCoveredText();
     initCart();
   } catch (err) {
     console.error('Error inicializando el menú:', err.message);
